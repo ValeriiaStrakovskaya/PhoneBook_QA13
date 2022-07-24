@@ -75,5 +75,12 @@ public class TestBase {
 
     }
 
- 
+    public boolean isLogged(){
+        return isElementPresent(By.xpath("//button[contains(text(),'Sign Out')]"));
+
+    }
+    public void logout(){
+        click(By.xpath("//button[contains(text(),'Sign Out')]"));
+
+    }
 }
