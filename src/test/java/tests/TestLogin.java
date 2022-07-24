@@ -1,32 +1,40 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+package tests;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
 
 
 
-public class TestLogin {
-    WebDriver wd;
+
+public class TestLogin extends TestBase{
+    //WebDriver wd;
 
 
 
-    @BeforeMethod
-    public void init(){
-        WebDriverManager.chromedriver().setup();
-        wd =  new ChromeDriver();
-        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
+//    @BeforeMethod
+//    public void init(){
+//        WebDriverManager.chromedriver().setup();
+//        wd =  new ChromeDriver();
+//        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
+//
+//    }
+@Test
+public void LoginPositiveTest(){
 
-    }
-
+String email = "Strakovskaya.valeriia@gmail.com";
+String password = "BigBubbles~182";
+    openLoginRegistrationForm();
+    fillLoginRegistrationForm(email,password);
+    submitLogin();
+    Assert.assertTrue(isElementPresent(By.xpath("//button")));
+    pause(3000);
+}
     @Test
-    public void LoginPositiveTest(){
+    public void LoginPositiveTestOld(){
         //open form
         wd.findElement(By.xpath("//*[text()='LOGIN']")).click();
 
@@ -131,8 +139,8 @@ Assert.assertFalse(test);
 
 
     }
-    @AfterMethod
-    public void TearDown(){
-        //     wd.quit();
-    }
+//    @AfterMethod
+//    public void TearDown(){
+//        //     wd.quit();
+//    }
 }
