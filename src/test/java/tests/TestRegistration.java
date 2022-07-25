@@ -1,22 +1,14 @@
 package tests;
-
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import static java.time.Duration.*;
-
 public class TestRegistration extends TestBase {
 
 @BeforeMethod
 public void preCondition(){
-    if(isLogged()){
-        logout();
+    if(app.getUser().isLogged()){
+        app.getUser().logout();
     }
 }
 
@@ -27,10 +19,11 @@ public void preCondition(){
         String email = "testName" + i + "@mail.com";
         String password = "BigBubbles~182";
         System.out.println("Email: " + email);
-        openLoginRegistrationForm();
-        fillLoginRegistrationForm(email,password);
-        submitRegistration();
-        Assert.assertTrue(isElementPresent(By.xpath("//button")));
+        app.getUser().openLoginRegistrationForm();
+        app.getUser().fillLoginRegistrationForm(email,password);
+        app.getUser().submitRegistration();
+        Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")));
+       // Assert.assertFalse(app.getUser().isLogged());
     }
 
     @Test
@@ -42,9 +35,15 @@ public void preCondition(){
         System.out.println("Email: " + email);
 
 
-        openLoginRegistrationForm();
-        fillLoginRegistrationForm(email,password);
-        submitRegistration();
+        app.getUser(). openLoginRegistrationForm();
+        app.getUser().fillLoginRegistrationForm(email,password);
+        app.getUser(). submitRegistration();
+        //Assert.assertFalse(app.getUser().isLogged());
+        Assert.assertTrue(app.getUser().isWrongMessageFormat());
+        Assert.assertTrue(app.getUser().isAlertPresent());
+
+
+
 
 //        WebElement wait = new WebDriverWait(wd, ofSeconds(10))
 //                .until(ExpectedConditions.alertIsPresent());
