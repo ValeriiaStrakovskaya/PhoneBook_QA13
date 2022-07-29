@@ -1,9 +1,11 @@
 package tests;
+import models.User;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 public class TestRegistration extends TestBase {
+
 
 @BeforeMethod
 public void preCondition(){
@@ -14,13 +16,12 @@ public void preCondition(){
 
     @Test
     public void registrationPos(){
-
         int i= (int) ((System.currentTimeMillis()/1000)%3600);
         String email = "testName" + i + "@mail.com";
         String password = "BigBubbles~182";
-        System.out.println("Email: " + email);
+        User data=new User().withEmail(email).withPassword(password);
         app.getUser().openLoginRegistrationForm();
-        app.getUser().fillLoginRegistrationForm(email,password);
+        app.getUser().fillLoginRegistrationForm(data);
         app.getUser().submitRegistration();
         Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")));
        // Assert.assertFalse(app.getUser().isLogged());
@@ -34,9 +35,9 @@ public void preCondition(){
         String password = "BigBubbles~182";
         System.out.println("Email: " + email);
 
-
+        User data=new User().withEmail(email).withPassword(password);
         app.getUser(). openLoginRegistrationForm();
-        app.getUser().fillLoginRegistrationForm(email,password);
+        app.getUser().fillLoginRegistrationForm(data);
         app.getUser(). submitRegistration();
         //Assert.assertFalse(app.getUser().isLogged());
         Assert.assertTrue(app.getUser().isWrongMessageFormat());

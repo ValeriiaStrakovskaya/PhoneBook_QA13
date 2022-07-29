@@ -1,5 +1,6 @@
 package manager;
 
+import models.User;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,11 +19,17 @@ public class HelperUser extends HelperBase{
         click(By.xpath("//button[1]"));
 
     }
-    public void fillLoginRegistrationForm(String email,String password) {
-        type(By.xpath("//input[1]"),email);
-        type(By.xpath("//input[2]"),password);
+//    public void fillLoginRegistrationForm(String email,String password) {
+//        type(By.xpath("//input[1]"),email);
+//        type(By.xpath("//input[2]"),password);
+//
+//    }
+public void fillLoginRegistrationForm(User data) {
+    type(By.xpath("//input[1]"),data.getEmail());
+    type(By.xpath("//input[2]"),data.getPassword());
 
-    }
+}
+
 
     public void openLoginRegistrationForm() {
         // wd.findElement(By.xpath("//*[text()='LOGIN']")).click();

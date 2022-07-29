@@ -1,5 +1,6 @@
 package tests;
 
+import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -10,6 +11,10 @@ import org.testng.annotations.Test;
 
 
 public class TestLogin extends TestBase{
+
+    String email = "Strakovskaya.valeriia@gmail.com";
+    String password = "BigBubbles~182";
+
     //WebDriver wd;
 
 
@@ -25,10 +30,10 @@ public class TestLogin extends TestBase{
 @Test
 public void LoginPositiveTest(){
 
-String email = "Strakovskaya.valeriia@gmail.com";
-String password = "BigBubbles~182";
+User data=new User().withEmail(email).withPassword(password);
     app.getUser().openLoginRegistrationForm();
-    app.getUser().fillLoginRegistrationForm(email,password);
+   // app.getUser().fillLoginRegistrationForm(email,password);
+    app.getUser().fillLoginRegistrationForm(data);
     app.getUser().submitLogin();
     Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")));
     app.getUser().pause(3000);
