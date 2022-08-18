@@ -1,11 +1,19 @@
 package tests;
 import manager.AppManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+
+import java.lang.reflect.Method;
 
 public class TestBase {
   // WebDriver wd;
 public static AppManager app=new AppManager();
+Logger logger= LoggerFactory.getLogger(TestBase.class);
+
 
     @BeforeSuite
     public void init(){
@@ -17,6 +25,16 @@ public static AppManager app=new AppManager();
        // wd.manage().timeouts().
         app.init();
     }
+    @BeforeMethod
+    public void startLogger(Method method){
+        logger.info("Start test------> " + method.getName());
+    }
+
+    @AfterMethod
+    public void end(){
+        logger.info("***********************");
+    }
+
     @AfterSuite
     public void tearDown(){
            // wd.quit();

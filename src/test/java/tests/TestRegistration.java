@@ -19,6 +19,7 @@ public void preCondition(){
         int i= (int) ((System.currentTimeMillis()/1000)%3600);
         String email = "testName" + i + "@mail.com";
         String password = "BigBubbles~182";
+        logger.info("Reg test starts with: " + email + "and " +password);
         User data=new User().withEmail(email).withPassword(password);
         app.getUser().openLoginRegistrationForm();
         app.getUser().fillLoginRegistrationForm(data);
