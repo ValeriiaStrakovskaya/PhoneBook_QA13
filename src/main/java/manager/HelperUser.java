@@ -26,7 +26,7 @@ public class HelperUser extends HelperBase{
 //    }
 public void fillLoginRegistrationForm(User data) {
     type(By.xpath("//input[1]"),data.getEmail());
-    type(By.xpath("input[2]"),data.getPassword());
+    type(By.xpath("//input[2]"),data.getPassword());
 
 }
 
@@ -61,5 +61,12 @@ public void fillLoginRegistrationForm(User data) {
         Alert alert=new WebDriverWait(wd,5).until(ExpectedConditions.alertIsPresent());
         String text = alert.getText();
        return text.contains("Wrong email or password format");
+    }
+
+    public void login(User user) {
+        openLoginRegistrationForm();
+        fillLoginRegistrationForm(user);
+        submitLogin();
+        pause(1000);
     }
 }

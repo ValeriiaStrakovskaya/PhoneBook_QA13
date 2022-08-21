@@ -1,16 +1,19 @@
 package tests;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 
 
 
 
-public class TestLogin extends TestBase{
+public class TestLogin extends TestBase {
 
     String email = "Strakovskaya.valeriia@gmail.com";
     String password = "BigBubbles~182";
@@ -18,8 +21,7 @@ public class TestLogin extends TestBase{
     //WebDriver wd;
 
 
-
-//    @BeforeMethod
+        @BeforeMethod
 //    public void init(){
 //        WebDriverManager.chromedriver().setup();
 //        wd =  new ChromeDriver();
@@ -27,18 +29,17 @@ public class TestLogin extends TestBase{
 //        wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
 //
 //    }
-@Test
-public void LoginPositiveTest(){
+    @Test
+    public void LoginPositiveTest() {
 
-User data=new User().withEmail(email).withPassword(password);
-    app.getUser().openLoginRegistrationForm();
-   // app.getUser().fillLoginRegistrationForm(email,password);
-    app.getUser().fillLoginRegistrationForm(data);
-    app.getUser().submitLogin();
-    Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")));
-    app.getUser().pause(3000);
-}
-
+        User data = new User().withEmail(email).withPassword(password);
+        app.getUser().openLoginRegistrationForm();
+        // app.getUser().fillLoginRegistrationForm(email,password);
+        app.getUser().fillLoginRegistrationForm(data);
+        app.getUser().submitLogin();
+        Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")));
+        app.getUser().pause(3000);
+    }
 
 
 //        @Test
@@ -122,9 +123,8 @@ User data=new User().withEmail(email).withPassword(password);
 //
 
 
+    @AfterMethod
+    public void TearDown() {
+        //     wd.quit();
     }
-//    @AfterMethod
-//    public void TearDown(){
-//        //     wd.quit();
-//    }
-
+}

@@ -10,6 +10,7 @@ public class HelperBase {
     public HelperBase(WebDriver wd) {
         this.wd = wd;
     }
+
     public boolean isElementPresent(By locator){
         return wd.findElements(locator).size()>0;
 
