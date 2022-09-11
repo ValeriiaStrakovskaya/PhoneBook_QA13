@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7a64a7e-459b-49e8-8e20-9992d006f109" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/RemoveContact.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/add.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/reg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/regression.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/smoke.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/testng.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/manager/AppManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/AppManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/manager/HelperBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/HelperBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/manager/HelperContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/HelperContact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/AddNewContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/AddNewContact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestRegistration.java" afterDir="false" />
-    </list>
+    <list default="true" id="a7a64a7e-459b-49e8-8e20-9992d006f109" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
