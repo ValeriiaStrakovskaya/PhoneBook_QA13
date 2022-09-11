@@ -21,7 +21,7 @@ public class TestLogin extends TestBase {
     //WebDriver wd;
 
 
-        @BeforeMethod
+  //  @BeforeMethod(alwaysRun = true)
 //    public void init(){
 //        WebDriverManager.chromedriver().setup();
 //        wd =  new ChromeDriver();
@@ -29,7 +29,7 @@ public class TestLogin extends TestBase {
 //        wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
 //
 //    }
-    @Test
+    @Test(groups = {"smoke"})
     public void LoginPositiveTest() {
 
         User data = new User().withEmail(email).withPassword(password);
@@ -39,25 +39,27 @@ public class TestLogin extends TestBase {
         app.getUser().submitLogin();
         Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")));
         app.getUser().pause(3000);
-    }
+    }}
 
 
-//        @Test
-//    public void LoginNegativeTest1(){
+//    @Test(groups = {"regression"})
+//    public void LoginNegativeTest1() {
 //        wd.findElement(By.xpath("//*[text()='LOGIN']")).click();
 //
 //        //fill form with wrong e-mail
-//        WebElement element =wd.findElement(By.xpath("//input[1]"));
+//        WebElement element = wd.findElement(By.xpath("//input[1]"));
 //        element.click();
 //        element.clear();
 //        element.sendKeys("Strakovskaya.valeriiagmail.com");
-//        element =wd.findElement(By.xpath("//input[2]"));
+//        element = wd.findElement(By.xpath("//input[2]"));
 //        element.click();
 //        element.clear();
 //        element.sendKeys("BigBubbles~182");
 //        //click login button
-//        element= wd.findElement(By.xpath("//button[text()=' Login']"));
+//        element = wd.findElement(By.xpath("//button[text()=' Login']"));
 //        element.click();
+//    }
+//}
 //        //assert if login button isn't present
 //
 //boolean test=true;
@@ -123,8 +125,9 @@ public class TestLogin extends TestBase {
 //
 
 
-    @AfterMethod
-    public void TearDown() {
-        //     wd.quit();
-    }
-}
+//        @AfterMethod
+//        public void TearDown () {
+//            //     wd.quit();
+//        }
+//    }
+

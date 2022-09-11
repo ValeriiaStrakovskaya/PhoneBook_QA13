@@ -1,5 +1,6 @@
 package tests;
 import manager.AppManager;
+import org.openqa.selenium.remote.BrowserType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterMethod;
@@ -11,14 +12,14 @@ import java.lang.reflect.Method;
 
 public class TestBase {
   // WebDriver wd;
-public static AppManager app=new AppManager();
+public static AppManager app=new AppManager(System.getProperty("browser", BrowserType.CHROME));
 Logger logger= LoggerFactory.getLogger(TestBase.class);
 
 
     @BeforeSuite
     public void init(){
 
-//        WebDriverManager.chromedriver().setup();
+//       WebDriverManager.chromedriver().setup();
 //        wd =  new ChromeDriver();
 //        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 //        wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");

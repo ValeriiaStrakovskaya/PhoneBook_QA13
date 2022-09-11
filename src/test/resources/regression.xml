@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Reg" verbose="1">
+    <groups>
+        <run>
+            <include name="regression"></include>
+        </run>
+    </groups>
+    <test name="regress_test">
+        <classes>
+            <class name="tests.TestLogin"/>
+            <class name="tests.AddNewContact"/>
+            <class name="tests.TestRegistration"/>
+        </classes>
+    </test>
+</suite>

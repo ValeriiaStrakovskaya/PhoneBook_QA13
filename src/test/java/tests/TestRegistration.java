@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class TestRegistration extends TestBase {
 
 
-@BeforeMethod
+@BeforeMethod(alwaysRun = true)
 public void preCondition(){
     if(app.getUser().isLogged()){
         app.getUser().logout();

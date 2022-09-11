@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 public class AddNewContact extends TestBase{
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void preCondition(){
         if(!app.getUser().isLogged()){
             app.getUser().login((new User()
@@ -24,7 +24,7 @@ public class AddNewContact extends TestBase{
 
 
 
-    @Test
+    @Test (invocationCount = 4,groups = {"smoke","regression"})
     public void addNewContactTest(){
 
         int i = (int)(System.currentTimeMillis()/1000)%3600;
@@ -41,11 +41,11 @@ public class AddNewContact extends TestBase{
         app.contact().fillContactForm(contact);
         app.contact().submitContactForm();
         app.contact().pause(3000);
-        if(app.contact().countContacts()>3){
-           app.contact().removeContacts();
-        }
+//        if(app.contact().countContacts()>3){
+//           app.contact().removeContacts();
+//        }
 
-
+        Assert.assertTrue(app.contact().isContactCreated(contact.getPhone()));
     }
 
     @AfterMethod
